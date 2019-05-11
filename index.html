@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>荞麦的珠心算</title>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
+    <style>
+        #start, #reset {
+            height: 3rem;
+            width: 100%;
+            background-color: red;
+            color: #fff;
+            outline: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 0.3rem;
+            border: none;
+        }
+        #reset {
+            background-color: rgb(87, 155, 68);
+            margin-bottom: 1rem;
+            display: none; 
+        }
+        #answer div, #question div{
+            text-align: center;
+            font-size: 3rem;
+            line-height: 3rem;
+            font-weight: bold;
+        }
+        #answer div{
+            color: red;
+            font-size: 4rem;
+            line-height: 4rem;
+            border-top: 1px solid #000;
+        }
+        #set {
+            background-color: rgba(0,0,0,0.8);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            z-index: 100;
+        }
+        .box {
+            width: 16rem;
+            padding-bottom: 2rem;
+            border-radius: 0.2rem;
+            background-color: #fff;
+            margin: 3rem auto 0 auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .box div {
+            position: relative;
+        }
+
+        .box div span {
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            line-height: 2.2rem;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .box button {
+            width: 40%;
+            height: 2rem;
+            margin: 1rem .2rem;
+            border: none;
+            outline: none;
+            border-radius: 0.3rem;
+        }
+
+        .box input{
+            border: 1px solid #aaa;
+            height: 2rem;
+            width: 85%;
+            display: block;
+            border-radius: 0.3rem;
+            text-align: right;
+            padding-right: 1rem;
+            margin: 0 auto .5rem auto;
+            position: relative;
+            z-index: 2;
+            background-color:transparent;
+        }
+
+        #submit {
+            background-color: #f00;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <button id="reset" onclick="window.location.reload();">重置</button>
+    <button id="start" onclick="letsGo();">开始</button>
+    <div id="question"></div>
+    <div id="answer"></div>
+    <div id="set">
+        <div class="box">
+                <div>
+                    <span>运算次数</span>
+                    <input maxlength="5" id="n" placeholder="" type="tel">
+                </div>
+                <div>
+                    <span>题目总数</span>
+                    <input maxlength="5" id="total" placeholder="" type="tel">
+                </div>
+                <div>
+                    <span>播报间隔时间(s)</span>
+                    <input maxlength="5" id="reporttime" placeholder="" type="tel">
+                </div>
+                <div>
+                    <span>公布答案间隔时间(s)</span>
+                    <input maxlength="5" id="resulttime" placeholder="" type="tel">
+                </div>
+                <button id="submit"> 确定 </button>
+                <button id="chance" onclick="document.getElementById('set').style.display='none'"> 取消 </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
