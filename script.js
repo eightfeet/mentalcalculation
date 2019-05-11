@@ -144,6 +144,8 @@ function reset() {
     answering = false;
     startBtn.style.display = "block";
     resetBtn.style.display = "none";
+    question.innerHTML = '';
+    answer.innerHTML = '';
 }
 
 function letsGo () {
